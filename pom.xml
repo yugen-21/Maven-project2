@@ -74,6 +74,8 @@
                 <includes>
                     <include>com/example/automation/*</include>
                 </includes>
+                <xmlOutput>true</xmlOutput>
+                <xmlOutputFile>${project.build.directory}/site/jacoco/jacoco.xml</xmlOutputFile>
                 </configuration>
             </plugin>
 
