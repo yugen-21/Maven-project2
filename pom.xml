@@ -44,31 +44,34 @@
     
     <build>
         <plugins>
-            <!-- jacoco plugin -->
+            <!-- JaCoCo Plugin -->
             <plugin>
-    <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.8.10</version>
-    <executions>
-        <execution>
-            <goals>
-                <goal>prepare-agent</goal>
-            </goals>
-        </execution>
-        <execution>
-            <id>report</id>
-            <phase>verify</phase>
-            <goals>
-                <goal>report</goal>
-            </goals>
-        </execution>
-    </executions>
-    <configuration>
-        <outputDirectory>${project.build.directory}/site/jacoco</outputDirectory>
-        <dataFile>${project.build.directory}/jacoco.exec</dataFile>
-        <xmlOutput>true</xmlOutput>
-    </configuration>
-</plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.10</version>
+                <executions>
+                    <!-- Attach JaCoCo agent during test execution -->
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <!-- Generate coverage reports during the verify phase -->
+                    <execution>
+                        <id>report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Path to the JaCoCo data file -->
+                    <dataFile>${project.build.directory}/jacoco.exec</dataFile>
+                    <!-- Output directory for coverage reports -->
+                    <outputDirectory>${project.build.directory}/site/jacoco</outputDirectory>
+                </configuration>
+            </plugin>
 
             <!-- Maven Surefire Plugin for running tests -->
             <plugin>
@@ -95,3 +98,4 @@
         </plugins>
     </build>
 </project>
+
