@@ -40,7 +40,7 @@ pipeline {
                 withSonarQubeEnv('SonarQube') {
                     bat """
                         mvn sonar:sonar ^
-                        -Dsonar.projectKey=sonar-maven-assessment ^
+                        -Dsonar.projectKey=smth ^
                         -Dsonar.tests=src/test/java ^
                         -Dsonar.java.binaries=target/classes ^
                         -Dsonar.java.test.binaries=target/test-classes ^
