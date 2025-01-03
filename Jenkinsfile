@@ -18,20 +18,7 @@ pipeline {
 
         stage('Build with Maven') {
             steps {
-                bat 'mvn clean'
-            }
-        }
-
-        stage('Run Automation Tests') {
-            steps {
-                bat 'mvn test verify'
-            }
-        }
-
-        stage('Generate Coverage Report') {
-            steps {
-                // Use a tool like Jacoco to generate the coverage report
-                bat 'mvn jacoco:report'
+                bat 'mvn clean verify'
             }
         }
 
